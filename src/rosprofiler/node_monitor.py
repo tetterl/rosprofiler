@@ -54,7 +54,7 @@ class NodeMonitor(object):
         """ Record cpu and memory information about this procress into a buffer """
         try:
             self.cpu_log.append(self._process.get_cpu_percent(interval=0))
-            virt, real = self._process.get_memory_info()
+            real, virt = self._process.get_memory_info()
             self.virt_log.append(virt)
             self.res_log.append(real)
             self.num_threads = max(self.num_threads, self._process.get_num_threads())
